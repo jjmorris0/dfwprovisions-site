@@ -5,292 +5,339 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <meta name="description" content="DFW Provisions provides micro-markets, vending, and AI vending solutions for North Fort Worth and the greater DFW area." />
   <title>DFW Provisions | Micro-Markets • Vending • AI Vending</title>
+
   <style>
     :root{
-      --bg:#0b1220;
-      --card:#101a31;
-      --text:#e8ecf6;
-      --muted:#b6c0d6;
+      --bg:#0b1020;
+      --surface:rgba(255,255,255,.06);
+      --surface2:rgba(255,255,255,.04);
+      --text:#eef2ff;
+      --muted:rgba(238,242,255,.72);
       --line:rgba(255,255,255,.10);
-      --accent:#7dd3fc;
-      --accent2:#a78bfa;
-      --ok:#34d399;
-      --shadow:0 12px 40px rgba(0,0,0,.35);
-      --radius:18px;
+      --shadow:0 18px 55px rgba(0,0,0,.45);
+      --radius:20px;
       --max:1100px;
+      --accent1:#7dd3fc;
+      --accent2:#a78bfa;
+      --accent3:#34d399;
     }
+
     *{box-sizing:border-box}
+    html,body{height:100%}
     body{
       margin:0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
       color:var(--text);
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
       background:
-        radial-gradient(1000px 600px at 20% -10%, rgba(125,211,252,.25), transparent 60%),
+        radial-gradient(900px 600px at 15% -10%, rgba(125,211,252,.25), transparent 60%),
         radial-gradient(900px 600px at 90% 10%, rgba(167,139,250,.18), transparent 55%),
         radial-gradient(700px 500px at 40% 110%, rgba(52,211,153,.10), transparent 60%),
         var(--bg);
       line-height:1.5;
     }
+
     a{color:inherit}
-    .wrap{max-width:var(--max); margin:0 auto; padding:28px 20px 64px;}
+    .wrap{max-width:var(--max); margin:0 auto; padding:26px 18px 60px;}
+    .glass{
+      background:linear-gradient(180deg, var(--surface), var(--surface2));
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      backdrop-filter: blur(10px);
+    }
+
+    /* Top bar */
     header{
       display:flex; align-items:center; justify-content:space-between;
-      gap:16px; padding:10px 0 24px;
+      gap:14px;
+      padding:14px 16px;
     }
     .brand{
       display:flex; align-items:center; gap:12px; text-decoration:none;
+      min-width:220px;
     }
-    .logo{
-      width:40px; height:40px; border-radius:12px;
-      background: linear-gradient(135deg, var(--accent), var(--accent2));
-      box-shadow: var(--shadow);
+    .mark{
+      width:42px; height:42px; border-radius:14px;
+      background: linear-gradient(135deg, rgba(125,211,252,.95), rgba(167,139,250,.92));
     }
-    .brand b{letter-spacing:.3px}
-    nav{display:flex; gap:14px; flex-wrap:wrap; justify-content:flex-end}
+    .brand b{letter-spacing:.2px}
+    .brand span{display:block; font-size:13px; color:var(--muted)}
+    nav{display:flex; gap:8px; flex-wrap:wrap; justify-content:flex-end}
     nav a{
-      text-decoration:none; color:var(--muted);
-      padding:8px 10px; border-radius:10px;
+      text-decoration:none;
+      color:var(--muted);
+      padding:8px 10px;
+      border-radius:12px;
       border:1px solid transparent;
     }
     nav a:hover{border-color:var(--line); color:var(--text); background:rgba(255,255,255,.04)}
-    .hero{
-      display:grid;
-      grid-template-columns: 1.2fr .8fr;
-      gap:18px;
-      align-items:stretch;
-      margin-top:8px;
-    }
-    @media (max-width: 920px){
-      .hero{grid-template-columns:1fr}
+    @media (max-width:800px){
+      header{flex-direction:column; align-items:flex-start}
       nav{justify-content:flex-start}
     }
-    .panel{
-      background: rgba(16,26,49,.78);
+
+    /* Hero */
+    .hero{
+      margin-top:14px;
+      display:grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap:14px;
+      align-items:stretch;
+    }
+    @media (max-width:900px){ .hero{grid-template-columns:1fr} }
+
+    .heroMain{padding:26px 22px}
+    .badge{
+      display:inline-flex; align-items:center; gap:10px;
+      padding:8px 12px;
+      border-radius:999px;
       border:1px solid var(--line);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      padding: 22px;
-      backdrop-filter: blur(8px);
-    }
-    .kicker{
-      display:inline-flex; gap:10px; align-items:center;
+      background:rgba(255,255,255,.04);
       color:var(--muted);
-      font-size:14px;
-      padding:8px 10px; border:1px solid var(--line);
-      border-radius: 999px;
-      background: rgba(255,255,255,.03);
+      font-size:13px;
     }
-    .dot{width:9px;height:9px;border-radius:999px;background:var(--ok); box-shadow:0 0 0 4px rgba(52,211,153,.12)}
+    .pulse{
+      width:9px;height:9px;border-radius:99px;background:var(--accent3);
+      box-shadow:0 0 0 5px rgba(52,211,153,.10);
+    }
     h1{
       margin:14px 0 10px;
-      font-size:42px;
-      line-height:1.08;
-      letter-spacing:-.8px;
+      font-size:44px;
+      line-height:1.05;
+      letter-spacing:-1px;
     }
-    @media (max-width: 520px){ h1{font-size:34px} }
-    p{margin:0 0 14px; color:var(--muted); font-size:16px}
-    .ctaRow{display:flex; gap:12px; flex-wrap:wrap; margin-top:14px}
+    @media (max-width:520px){ h1{font-size:34px} }
+    .subhead{
+      margin:0 0 18px;
+      color:var(--muted);
+      font-size:17px;
+      max-width:52ch;
+    }
+    .ctaRow{display:flex; gap:10px; flex-wrap:wrap; margin-top:6px}
     .btn{
-      display:inline-flex; align-items:center; justify-content:center;
-      gap:10px;
+      display:inline-flex; align-items:center; justify-content:center; gap:10px;
       padding:12px 14px;
-      border-radius: 14px;
+      border-radius:14px;
       text-decoration:none;
       border:1px solid var(--line);
-      background: rgba(255,255,255,.04);
-      color:var(--text);
-      font-weight:600;
+      background:rgba(255,255,255,.04);
+      font-weight:650;
     }
-    .btn:hover{background: rgba(255,255,255,.07)}
+    .btn:hover{background:rgba(255,255,255,.07)}
     .btnPrimary{
       border-color: transparent;
       background: linear-gradient(135deg, rgba(125,211,252,.95), rgba(167,139,250,.92));
-      color:#0b1220;
+      color:#0b1020;
     }
-    .btnPrimary:hover{filter:brightness(1.03)}
-    .grid3{
-      display:grid; grid-template-columns: repeat(3, 1fr);
-      gap:14px; margin-top:16px;
+
+    .heroSide{padding:18px}
+    .kpi{
+      display:grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap:10px;
+      margin-top:10px;
     }
-    @media (max-width: 920px){ .grid3{grid-template-columns:1fr} }
-    .card h3{margin:0 0 8px; font-size:18px}
-    .card p{margin:0; font-size:15px}
-    .list{margin:12px 0 0; padding:0; list-style:none; display:grid; gap:10px}
+    .kpi .box{
+      padding:12px 12px;
+      border-radius:16px;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.03);
+    }
+    .kpi b{display:block; font-size:14px}
+    .kpi span{display:block; font-size:13px; color:var(--muted); margin-top:3px}
+
+    /* Sections */
+    section{margin-top:18px}
+    .sectionTitle{margin:0 0 10px; font-size:16px; color:var(--muted); letter-spacing:.2px}
+    .cards{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:12px;
+    }
+    @media (max-width:900px){ .cards{grid-template-columns:1fr} }
+    .card{padding:16px}
+    .card h3{margin:2px 0 6px; font-size:18px}
+    .card p{margin:0; color:var(--muted); font-size:15px}
+
+    .two{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:12px;
+    }
+    @media (max-width:900px){ .two{grid-template-columns:1fr} }
+
+    ul.clean{margin:0; padding:0; list-style:none; display:grid; gap:10px}
     .li{
       display:flex; gap:10px; align-items:flex-start;
-      padding:10px 12px; border-radius:14px;
+      padding:12px 12px;
+      border-radius:16px;
       border:1px solid var(--line);
-      background: rgba(255,255,255,.03);
+      background:rgba(255,255,255,.03);
     }
-    .check{
-      flex:0 0 auto;
-      width:20px;height:20px;border-radius:7px;
-      background: rgba(52,211,153,.18);
-      border:1px solid rgba(52,211,153,.35);
+    .icon{
+      width:22px;height:22px;border-radius:9px;
+      border:1px solid rgba(125,211,252,.30);
+      background: rgba(125,211,252,.12);
       display:grid; place-items:center;
+      flex:0 0 auto;
       margin-top:1px;
     }
-    .check svg{width:13px;height:13px}
-    section{margin-top:18px}
-    .sectionTitle{
-      margin:0 0 10px;
-      font-size:18px;
-      letter-spacing:.2px;
+    .icon svg{width:13px;height:13px}
+    .li b{display:block}
+    .li span{display:block; color:var(--muted); font-size:14px; margin-top:2px}
+
+    .contact{
+      display:flex; gap:10px; flex-wrap:wrap;
+      align-items:center;
+      padding:16px;
     }
-    .two{
-      display:grid; grid-template-columns: 1fr 1fr; gap:14px;
-    }
-    @media (max-width: 920px){ .two{grid-template-columns:1fr} }
-    .pillRow{display:flex; flex-wrap:wrap; gap:10px; margin-top:10px}
-    .pill{
-      padding:8px 10px; border-radius:999px;
-      border:1px solid var(--line);
-      color:var(--muted);
-      background: rgba(255,255,255,.03);
-      font-size:14px;
-    }
-    footer{
-      margin-top:28px; color:var(--muted);
-      display:flex; justify-content:space-between; gap:10px; flex-wrap:wrap;
-      border-top:1px solid var(--line);
-      padding-top:18px;
-      font-size:14px;
-    }
-    .small{font-size:14px}
+    .contact .grow{flex:1 1 auto}
     .mono{font-variant-numeric: tabular-nums}
+    footer{
+      margin-top:22px;
+      padding-top:16px;
+      border-top:1px solid var(--line);
+      color:var(--muted);
+      display:flex;
+      justify-content:space-between;
+      gap:10px;
+      flex-wrap:wrap;
+      font-size:13px;
+    }
   </style>
 </head>
 
 <body>
   <div class="wrap">
-    <header>
+    <header class="glass">
       <a class="brand" href="#top" aria-label="DFW Provisions">
-        <div class="logo" aria-hidden="true"></div>
+        <div class="mark" aria-hidden="true"></div>
         <div>
-          <b>DFW Provisions</b><br/>
-          <span class="small" style="color:var(--muted)">Micro-Markets • Vending • AI Vending</span>
+          <b>DFW Provisions</b>
+          <span>Micro-Markets • Vending • AI Vending</span>
         </div>
       </a>
       <nav>
         <a href="#services">Services</a>
-        <a href="#why">Why us</a>
+        <a href="#standards">Standards</a>
         <a href="#areas">Areas</a>
         <a href="#contact">Contact</a>
       </nav>
     </header>
 
     <main id="top" class="hero">
-      <div class="panel">
-        <div class="kicker"><span class="dot"></span><span>North Fort Worth focus • Serving DFW</span></div>
-        <h1>Modern breakroom solutions that people actually use.</h1>
-        <p>
-          DFW Provisions designs and operates <b>micro-markets</b>, <b>traditional vending</b>, and <b>AI vending</b> (including HAHA-style smart machines)
-          for workplaces, multifamily properties, and high-traffic locations across DFW.
-        </p>
-        <p>
-          Whether you want a premium experience or a value-first setup, we stock the right mix and keep it full.
+      <div class="glass heroMain">
+        <div class="badge"><span class="pulse"></span>North Fort Worth first • Serving DFW</div>
+        <h1>Better breakrooms, without the hassle.</h1>
+        <p class="subhead">
+          We place and operate micro-markets, vending, and AI vending solutions that stay stocked, look clean,
+          and make it easy for people to buy.
         </p>
 
         <div class="ctaRow">
-          <a class="btn btnPrimary" href="#contact">Get a site quote</a>
-          <a class="btn" href="mailto:jason@dfwprovisions.com">Email Jason</a>
-          <a class="btn" href="tel:+18175411011">Call 817-541-1011</a>
+          <a class="btn btnPrimary" href="mailto:jason@dfwprovisions.com?subject=DFW%20Provisions%20-%20Placement%20Request&body=Hi%20Jason%2C%0A%0AI%E2%80%99d%20like%20a%20quote%20for%20%5Baddress%5D.%0A%0A-%20Option%20I%E2%80%99m%20interested%20in%3A%20Micro-market%20%2F%20Vending%20%2F%20AI%20vending%0A-%20Estimated%20headcount%2Ftraffic%3A%20%0A-%20Hours%20of%20operation%3A%20%0A-%20Anything%20else%3A%20%0A%0AThanks!">Request a placement</a>
+          <a class="btn" href="tel:+18175411011">Call <span class="mono">817-541-1011</span></a>
         </div>
 
         <section id="services">
-          <h2 class="sectionTitle">What we offer</h2>
-          <div class="grid3">
-            <div class="panel card">
+          <p class="sectionTitle">Services</p>
+          <div class="cards">
+            <div class="glass card">
               <h3>Micro-Markets</h3>
-              <p>Open-shelf, self-checkout markets that feel like a mini convenience store—ideal for offices and properties.</p>
+              <p>Open-shelf markets with self-checkout—ideal for offices and properties.</p>
             </div>
-            <div class="panel card">
-              <h3>Traditional Vending</h3>
-              <p>Reliable snack & beverage machines with modern payment options and optimized product mix.</p>
+            <div class="glass card">
+              <h3>Vending</h3>
+              <p>Snack & beverage machines with modern payment options and strong uptime.</p>
             </div>
-            <div class="panel card">
-              <h3>AI / Smart Vending</h3>
-              <p>Next-gen “grab-and-go” experiences and telemetry-driven operations for better in-stock performance.</p>
+            <div class="glass card">
+              <h3>AI Vending</h3>
+              <p>Smart “grab-and-go” experiences (HAHA-style) with telemetry-led restocking.</p>
             </div>
           </div>
         </section>
       </div>
 
-      <aside class="panel">
-        <h2 class="sectionTitle">Operating standards</h2>
-        <ul class="list">
-          <li class="li">
-            <div class="check" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none">
-                <path d="M6 12.5l3.2 3.2L18 7.9" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </div>
-            <div><b>Great product mix</b><br/><span class="small">Premium or value—tailored to your people and price points.</span></div>
-          </li>
-          <li class="li">
-            <div class="check" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none">
-                <path d="M6 12.5l3.2 3.2L18 7.9" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </div>
-            <div><b>Fast restocking</b><br/><span class="small">Consistent visits and data-driven replenishment to reduce outages.</span></div>
-          </li>
-          <li class="li">
-            <div class="check" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none">
-                <path d="M6 12.5l3.2 3.2L18 7.9" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </div>
-            <div><b>Modern payments</b><br/><span class="small">Tap, chip, mobile wallets—less friction, higher usage.</span></div>
-          </li>
-          <li class="li">
-            <div class="check" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none">
-                <path d="M6 12.5l3.2 3.2L18 7.9" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </div>
-            <div><b>Clean, professional install</b><br/><span class="small">Equipment and signage that looks legit and earns repeat use.</span></div>
-          </li>
-        </ul>
+      <aside class="glass heroSide">
+        <p class="sectionTitle">What you can expect</p>
 
-        <section id="why">
-          <h2 class="sectionTitle">Why DFW Provisions</h2>
-          <p class="small">
-            We’re focused on building long-term placements by keeping machines and markets <b>full, clean, and relevant</b>.
-            The goal is simple: a breakroom people enjoy, with minimal hassle for you.
-          </p>
-          <div class="pillRow">
-            <span class="pill">Micro-market design</span>
-            <span class="pill">Telemetry & inventory</span>
-            <span class="pill">Premium + value tiers</span>
-            <span class="pill">DFW local operator</span>
+        <div class="kpi">
+          <div class="box">
+            <b>Product mix</b>
+            <span>Premium or value—your call.</span>
           </div>
+          <div class="box">
+            <b>Modern payments</b>
+            <span>Tap, chip, mobile wallet.</span>
+          </div>
+          <div class="box">
+            <b>Clean installs</b>
+            <span>Professional + simple.</span>
+          </div>
+          <div class="box">
+            <b>Local operator</b>
+            <span>North Fort Worth focus.</span>
+          </div>
+        </div>
+
+        <section id="standards">
+          <p class="sectionTitle" style="margin-top:14px">Operating standards</p>
+          <ul class="clean">
+            <li class="li">
+              <div class="icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none">
+                  <path d="M6 12.5l3.2 3.2L18 7.9" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+              <div><b>In-stock focus</b><span>Telemetry-driven restocking to reduce outages.</span></div>
+            </li>
+            <li class="li">
+              <div class="icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none">
+                  <path d="M6 12.5l3.2 3.2L18 7.9" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+              <div><b>Right pricing</b><span>Clear tiers and a curated mix.</span></div>
+            </li>
+            <li class="li">
+              <div class="icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none">
+                  <path d="M6 12.5l3.2 3.2L18 7.9" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+              <div><b>Fast support</b><span>Quick response for refunds or issues.</span></div>
+            </li>
+            <li class="li">
+              <div class="icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none">
+                  <path d="M6 12.5l3.2 3.2L18 7.9" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+              <div><b>Professional look</b><span>Equipment and signage that fits your space.</span></div>
+            </li>
+          </ul>
         </section>
 
         <section id="areas">
-          <h2 class="sectionTitle">Areas served</h2>
-          <p class="small">
-            Starting in <b>North Fort Worth</b> and expanding across the greater <b>DFW</b> metroplex.
-          </p>
-        </section>
-
-        <section id="contact">
-          <h2 class="sectionTitle">Contact</h2>
-          <p class="small">
-            <b>Jason</b><br/>
-            <span class="mono">817-541-1011</span><br/>
-            <a href="mailto:jason@dfwprovisions.com">jason@dfwprovisions.com</a>
-          </p>
-          <p class="small" style="margin-top:10px; color:var(--muted)">
-            Want a quote? Email your address + headcount/traffic estimate and what you’re considering (micro-market, vending, AI vending).
+          <p class="sectionTitle" style="margin-top:14px">Areas</p>
+          <p style="margin:0; color:var(--muted); font-size:14px">
+            North Fort Worth to start, expanding across the DFW metroplex.
           </p>
         </section>
       </aside>
     </main>
 
+    <section id="contact" class="glass contact" style="margin-top:14px">
+      <div class="grow">
+        <b>Contact</b><br/>
+        <span style="color:var(--muted)">Jason • <a href="mailto:jason@dfwprovisions.com">jason@dfwprovisions.com</a> • <a class="mono" href="tel:+18175411011">817-541-1011</a></span>
+      </div>
+      <a class="btn btnPrimary" href="mailto:jason@dfwprovisions.com?subject=DFW%20Provisions%20-%20Placement%20Request">Email for a quote</a>
+    </section>
+
     <footer>
       <div>© <span id="y"></span> DFW Provisions</div>
-      <div class="small">Micro-Markets • Vending • AI Vending</div>
+      <div>Micro-Markets • Vending • AI Vending</div>
     </footer>
   </div>
 
