@@ -1,0 +1,301 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="DFW Provisions provides micro-markets, vending, and AI vending solutions for North Fort Worth and the greater DFW area." />
+  <title>DFW Provisions | Micro-Markets • Vending • AI Vending</title>
+  <style>
+    :root{
+      --bg:#0b1220;
+      --card:#101a31;
+      --text:#e8ecf6;
+      --muted:#b6c0d6;
+      --line:rgba(255,255,255,.10);
+      --accent:#7dd3fc;
+      --accent2:#a78bfa;
+      --ok:#34d399;
+      --shadow:0 12px 40px rgba(0,0,0,.35);
+      --radius:18px;
+      --max:1100px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      color:var(--text);
+      background:
+        radial-gradient(1000px 600px at 20% -10%, rgba(125,211,252,.25), transparent 60%),
+        radial-gradient(900px 600px at 90% 10%, rgba(167,139,250,.18), transparent 55%),
+        radial-gradient(700px 500px at 40% 110%, rgba(52,211,153,.10), transparent 60%),
+        var(--bg);
+      line-height:1.5;
+    }
+    a{color:inherit}
+    .wrap{max-width:var(--max); margin:0 auto; padding:28px 20px 64px;}
+    header{
+      display:flex; align-items:center; justify-content:space-between;
+      gap:16px; padding:10px 0 24px;
+    }
+    .brand{
+      display:flex; align-items:center; gap:12px; text-decoration:none;
+    }
+    .logo{
+      width:40px; height:40px; border-radius:12px;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      box-shadow: var(--shadow);
+    }
+    .brand b{letter-spacing:.3px}
+    nav{display:flex; gap:14px; flex-wrap:wrap; justify-content:flex-end}
+    nav a{
+      text-decoration:none; color:var(--muted);
+      padding:8px 10px; border-radius:10px;
+      border:1px solid transparent;
+    }
+    nav a:hover{border-color:var(--line); color:var(--text); background:rgba(255,255,255,.04)}
+    .hero{
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap:18px;
+      align-items:stretch;
+      margin-top:8px;
+    }
+    @media (max-width: 920px){
+      .hero{grid-template-columns:1fr}
+      nav{justify-content:flex-start}
+    }
+    .panel{
+      background: rgba(16,26,49,.78);
+      border:1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 22px;
+      backdrop-filter: blur(8px);
+    }
+    .kicker{
+      display:inline-flex; gap:10px; align-items:center;
+      color:var(--muted);
+      font-size:14px;
+      padding:8px 10px; border:1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255,255,255,.03);
+    }
+    .dot{width:9px;height:9px;border-radius:999px;background:var(--ok); box-shadow:0 0 0 4px rgba(52,211,153,.12)}
+    h1{
+      margin:14px 0 10px;
+      font-size:42px;
+      line-height:1.08;
+      letter-spacing:-.8px;
+    }
+    @media (max-width: 520px){ h1{font-size:34px} }
+    p{margin:0 0 14px; color:var(--muted); font-size:16px}
+    .ctaRow{display:flex; gap:12px; flex-wrap:wrap; margin-top:14px}
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      gap:10px;
+      padding:12px 14px;
+      border-radius: 14px;
+      text-decoration:none;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.04);
+      color:var(--text);
+      font-weight:600;
+    }
+    .btn:hover{background: rgba(255,255,255,.07)}
+    .btnPrimary{
+      border-color: transparent;
+      background: linear-gradient(135deg, rgba(125,211,252,.95), rgba(167,139,250,.92));
+      color:#0b1220;
+    }
+    .btnPrimary:hover{filter:brightness(1.03)}
+    .grid3{
+      display:grid; grid-template-columns: repeat(3, 1fr);
+      gap:14px; margin-top:16px;
+    }
+    @media (max-width: 920px){ .grid3{grid-template-columns:1fr} }
+    .card h3{margin:0 0 8px; font-size:18px}
+    .card p{margin:0; font-size:15px}
+    .list{margin:12px 0 0; padding:0; list-style:none; display:grid; gap:10px}
+    .li{
+      display:flex; gap:10px; align-items:flex-start;
+      padding:10px 12px; border-radius:14px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.03);
+    }
+    .check{
+      flex:0 0 auto;
+      width:20px;height:20px;border-radius:7px;
+      background: rgba(52,211,153,.18);
+      border:1px solid rgba(52,211,153,.35);
+      display:grid; place-items:center;
+      margin-top:1px;
+    }
+    .check svg{width:13px;height:13px}
+    section{margin-top:18px}
+    .sectionTitle{
+      margin:0 0 10px;
+      font-size:18px;
+      letter-spacing:.2px;
+    }
+    .two{
+      display:grid; grid-template-columns: 1fr 1fr; gap:14px;
+    }
+    @media (max-width: 920px){ .two{grid-template-columns:1fr} }
+    .pillRow{display:flex; flex-wrap:wrap; gap:10px; margin-top:10px}
+    .pill{
+      padding:8px 10px; border-radius:999px;
+      border:1px solid var(--line);
+      color:var(--muted);
+      background: rgba(255,255,255,.03);
+      font-size:14px;
+    }
+    footer{
+      margin-top:28px; color:var(--muted);
+      display:flex; justify-content:space-between; gap:10px; flex-wrap:wrap;
+      border-top:1px solid var(--line);
+      padding-top:18px;
+      font-size:14px;
+    }
+    .small{font-size:14px}
+    .mono{font-variant-numeric: tabular-nums}
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <header>
+      <a class="brand" href="#top" aria-label="DFW Provisions">
+        <div class="logo" aria-hidden="true"></div>
+        <div>
+          <b>DFW Provisions</b><br/>
+          <span class="small" style="color:var(--muted)">Micro-Markets • Vending • AI Vending</span>
+        </div>
+      </a>
+      <nav>
+        <a href="#services">Services</a>
+        <a href="#why">Why us</a>
+        <a href="#areas">Areas</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <main id="top" class="hero">
+      <div class="panel">
+        <div class="kicker"><span class="dot"></span><span>North Fort Worth focus • Serving DFW</span></div>
+        <h1>Modern breakroom solutions that people actually use.</h1>
+        <p>
+          DFW Provisions designs and operates <b>micro-markets</b>, <b>traditional vending</b>, and <b>AI vending</b> (including HAHA-style smart machines)
+          for workplaces, multifamily properties, and high-traffic locations across DFW.
+        </p>
+        <p>
+          Whether you want a premium experience or a value-first setup, we stock the right mix and keep it full.
+        </p>
+
+        <div class="ctaRow">
+          <a class="btn btnPrimary" href="#contact">Get a site quote</a>
+          <a class="btn" href="mailto:jason@dfwprovisions.com">Email Jason</a>
+          <a class="btn" href="tel:+18175411011">Call 817-541-1011</a>
+        </div>
+
+        <section id="services">
+          <h2 class="sectionTitle">What we offer</h2>
+          <div class="grid3">
+            <div class="panel card">
+              <h3>Micro-Markets</h3>
+              <p>Open-shelf, self-checkout markets that feel like a mini convenience store—ideal for offices and properties.</p>
+            </div>
+            <div class="panel card">
+              <h3>Traditional Vending</h3>
+              <p>Reliable snack & beverage machines with modern payment options and optimized product mix.</p>
+            </div>
+            <div class="panel card">
+              <h3>AI / Smart Vending</h3>
+              <p>Next-gen “grab-and-go” experiences and telemetry-driven operations for better in-stock performance.</p>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <aside class="panel">
+        <h2 class="sectionTitle">Operating standards</h2>
+        <ul class="list">
+          <li class="li">
+            <div class="check" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none">
+                <path d="M6 12.5l3.2 3.2L18 7.9" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <div><b>Great product mix</b><br/><span class="small">Premium or value—tailored to your people and price points.</span></div>
+          </li>
+          <li class="li">
+            <div class="check" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none">
+                <path d="M6 12.5l3.2 3.2L18 7.9" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <div><b>Fast restocking</b><br/><span class="small">Consistent visits and data-driven replenishment to reduce outages.</span></div>
+          </li>
+          <li class="li">
+            <div class="check" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none">
+                <path d="M6 12.5l3.2 3.2L18 7.9" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <div><b>Modern payments</b><br/><span class="small">Tap, chip, mobile wallets—less friction, higher usage.</span></div>
+          </li>
+          <li class="li">
+            <div class="check" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none">
+                <path d="M6 12.5l3.2 3.2L18 7.9" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <div><b>Clean, professional install</b><br/><span class="small">Equipment and signage that looks legit and earns repeat use.</span></div>
+          </li>
+        </ul>
+
+        <section id="why">
+          <h2 class="sectionTitle">Why DFW Provisions</h2>
+          <p class="small">
+            We’re focused on building long-term placements by keeping machines and markets <b>full, clean, and relevant</b>.
+            The goal is simple: a breakroom people enjoy, with minimal hassle for you.
+          </p>
+          <div class="pillRow">
+            <span class="pill">Micro-market design</span>
+            <span class="pill">Telemetry & inventory</span>
+            <span class="pill">Premium + value tiers</span>
+            <span class="pill">DFW local operator</span>
+          </div>
+        </section>
+
+        <section id="areas">
+          <h2 class="sectionTitle">Areas served</h2>
+          <p class="small">
+            Starting in <b>North Fort Worth</b> and expanding across the greater <b>DFW</b> metroplex.
+          </p>
+        </section>
+
+        <section id="contact">
+          <h2 class="sectionTitle">Contact</h2>
+          <p class="small">
+            <b>Jason</b><br/>
+            <span class="mono">817-541-1011</span><br/>
+            <a href="mailto:jason@dfwprovisions.com">jason@dfwprovisions.com</a>
+          </p>
+          <p class="small" style="margin-top:10px; color:var(--muted)">
+            Want a quote? Email your address + headcount/traffic estimate and what you’re considering (micro-market, vending, AI vending).
+          </p>
+        </section>
+      </aside>
+    </main>
+
+    <footer>
+      <div>© <span id="y"></span> DFW Provisions</div>
+      <div class="small">Micro-Markets • Vending • AI Vending</div>
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById("y").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
